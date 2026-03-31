@@ -43,12 +43,12 @@
   <MethodologyBox>
     <p>
       The data on this page comes from the Department of Housing Preservation and Development
-      <a href="https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations/wvxf-dwi5" target="_blank">via New York City's open data portal</a>.
+      <a href="https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations/wvxf-dwi5" target="_blank" rel="noopener noreferrer">via New York City's open data portal</a>.
     </p>
     <p>
       The citations published by the city were filtered to include only lead paint violations that city inspectors listed as unresolved. The data was filtered to only citations linked to addresses in the Bronx and then aggregated by address. Only addresses with five or more open violations were included in the ranking. The data is current as of March 2026.
     </p>
-    <p>The code that executed the analysis is available as open source on GitHub at <a href="https://github.com/palewire/nyc-hpd-bronx-lead-paint-violations" target="_blank">github.com/palewire/nyc-hpd-bronx-lead-paint-violations</a>.</p>
+    <p>The code that executed the analysis is available as open source on GitHub at <a href="https://github.com/palewire/nyc-hpd-bronx-lead-paint-violations" target="_blank" rel="noopener noreferrer">github.com/palewire/nyc-hpd-bronx-lead-paint-violations</a>.</p>
   </MethodologyBox>
 </div>
 
