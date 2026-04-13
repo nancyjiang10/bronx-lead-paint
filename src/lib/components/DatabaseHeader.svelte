@@ -59,9 +59,11 @@ layout is single-column and backward-compatible.
 
   .hero-header {
     width: 100%;
-    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
-    background: var(--color-white);
-    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+    background:
+      radial-gradient(circle at top right, rgba(26, 26, 26, 0.05), transparent 36%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.15));
+    border-bottom: 1px solid rgba(26, 26, 26, 0.1);
   }
 
   .hero-inner {
@@ -71,9 +73,10 @@ layout is single-column and backward-compatible.
 
   /* Two-column layout when a graphic snippet is provided */
   .hero-inner.has-graphic {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
     gap: var(--spacing-lg);
+    align-items: start;
   }
 
   .hero-left {
@@ -84,82 +87,71 @@ layout is single-column and backward-compatible.
     max-width: var(--max-width);
   }
 
-  .hero-content::before {
-    content: 'Database';
-    display: inline-block;
-    margin-bottom: var(--spacing-xs);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: var(--letter-spacing-wider);
-    text-transform: uppercase;
-    color: var(--color-medium-gray);
-  }
-
   .hero-headline {
     font-family: var(--font-serif);
-    font-size: var(--font-size-6xl);
-    font-weight: var(--font-weight-normal);
-    line-height: var(--leading-tight);
+    font-size: clamp(2.75rem, 6vw, 5.5rem);
+    font-weight: var(--font-weight-semibold);
+    line-height: 0.9;
     color: var(--color-dark);
-    margin-bottom: var(--spacing-xs);
-    max-width: 14ch;
+    margin-bottom: var(--spacing-sm);
+    max-width: 12ch;
+    text-wrap: balance;
   }
 
   .hero-byline {
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
-    color: var(--color-medium-gray);
-    margin: var(--spacing-xxs) 0;
+    color: rgba(26, 26, 26, 0.7);
+    margin: 0.1rem 0;
   }
 
   .hero-date {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    color: var(--color-medium-gray);
+    font-size: 0.75rem;
+    color: rgba(26, 26, 26, 0.55);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
-    margin: var(--spacing-xxs) 0;
+    letter-spacing: 0.18em;
+    margin: 0.1rem 0 0;
   }
 
   .hero-description {
     font-family: var(--font-sans);
-    font-size: var(--font-size-lg);
-    line-height: var(--leading-normal);
+    font-size: var(--font-size-base);
+    line-height: var(--leading-relaxed);
     color: var(--color-text);
-    margin-bottom: var(--spacing-sm);
-    max-width: 62ch;
+    margin-bottom: var(--spacing-md);
+    max-width: 44ch;
   }
 
   .hero-extra {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    max-width: 44rem;
   }
 
   .hero-graphic {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 400px;
-    margin: 0 auto;
+    align-items: stretch;
+    justify-content: stretch;
+    margin: 0;
+    min-width: 0;
   }
 
   @include tablet {
     .hero-header {
-      padding: var(--spacing-xxl) var(--spacing-md) var(--spacing-lg);
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-xl);
     }
 
     .hero-inner.has-graphic {
-      flex-direction: row;
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
     }
 
     .hero-headline {
-      font-size: var(--font-size-6xl);
+      max-width: 11ch;
     }
 
     .hero-description {
-      font-size: var(--font-size-xl);
+      font-size: var(--font-size-lg);
     }
 
     .hero-graphic {
@@ -172,7 +164,11 @@ layout is single-column and backward-compatible.
       padding: 0 var(--spacing-md);
     }
     .hero-headline {
-      font-size: var(--font-size-display);
+      font-size: clamp(4.5rem, 6vw, 7rem);
+    }
+
+    .hero-extra {
+      margin-top: var(--spacing-md);
     }
   }
 </style>

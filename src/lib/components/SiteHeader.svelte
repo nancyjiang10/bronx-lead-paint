@@ -37,8 +37,9 @@ SiteHeader.svelte — NYCity News Service Style Header
   @use '../styles' as *;
 
   .site-header {
-    border-bottom: 1px solid var(--color-border);
-    background: var(--color-white);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+    background: rgba(246, 242, 234, 0.92);
+    backdrop-filter: blur(10px);
   }
 
   .masthead-wrapper {
@@ -50,7 +51,7 @@ SiteHeader.svelte — NYCity News Service Style Header
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-md);
-    padding: 0.9rem var(--spacing-md);
+    padding: 0.8rem var(--spacing-md);
     max-width: var(--max-width-wide);
     margin: 0 auto;
   }
@@ -67,33 +68,29 @@ SiteHeader.svelte — NYCity News Service Style Header
 
   .logo-text {
     display: inline-flex;
-    align-items: stretch;
-    border: 1px solid var(--color-border);
-    background: var(--color-white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
   }
 
   .logo-nycity {
-    background-color: var(--color-white);
-    color: var(--color-accent);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    padding: var(--logo-padding-mobile);
-    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-dark);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-tight);
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
+    line-height: 1;
   }
 
   .logo-news-service {
     color: var(--color-dark);
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-normal);
-    padding: var(--logo-padding-mobile);
-    letter-spacing: var(--letter-spacing-tight);
-    display: flex;
-    align-items: center;
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1;
   }
 
   .main-nav {
@@ -110,13 +107,13 @@ SiteHeader.svelte — NYCity News Service Style Header
   }
 
   .nav-link {
-    color: var(--color-medium-gray);
+    color: rgba(26, 26, 26, 0.68);
     text-decoration: none;
     font-family: var(--font-sans);
     font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
+    letter-spacing: 0.18em;
     white-space: nowrap;
     transition: var(--transition-opacity);
   }
@@ -129,17 +126,15 @@ SiteHeader.svelte — NYCity News Service Style Header
   @include desktop {
     .masthead {
       justify-content: space-between;
-      padding: 1rem var(--spacing-lg);
+      padding: 0.9rem var(--spacing-lg);
     }
 
     .logo-nycity {
-      font-size: var(--font-size-base);
-      padding: var(--logo-padding-desktop);
+      font-size: var(--font-size-2xl);
     }
 
     .logo-news-service {
-      font-size: var(--font-size-base);
-      padding: var(--logo-padding-desktop);
+      font-size: 0.75rem;
     }
 
     .main-nav {

@@ -1,4 +1,5 @@
 import { fetchComplaints } from '$lib/data/fetchComplaints.js';
+import { enrichBuildingsWithImages } from '$lib/data/buildingImages.js';
 import { error } from '@sveltejs/kit';
 
 export const prerender = true;
@@ -11,7 +12,9 @@ export async function load({ params }) {
     throw error(404, 'Building not found');
   }
 
-  return { building };
+  const [enrichedBuilding] = await enrichBuildingsWithImages([building], 1);
+
+  return { building: enrichedBuilding };
 }
 
 export async function entries() {
