@@ -59,7 +59,9 @@ layout is single-column and backward-compatible.
 
   .hero-header {
     width: 100%;
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .hero-inner {
@@ -82,18 +84,31 @@ layout is single-column and backward-compatible.
     max-width: var(--max-width);
   }
 
+  .hero-content::before {
+    content: 'Database';
+    display: inline-block;
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    color: var(--color-medium-gray);
+  }
+
   .hero-headline {
     font-family: var(--font-serif);
-    font-size: var(--font-size-5xl);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-6xl);
+    font-weight: var(--font-weight-normal);
     line-height: var(--leading-tight);
     color: var(--color-dark);
     margin-bottom: var(--spacing-xs);
+    max-width: 14ch;
   }
 
   .hero-byline {
     font-family: var(--font-sans);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     color: var(--color-medium-gray);
     margin: var(--spacing-xxs) 0;
   }
@@ -110,9 +125,10 @@ layout is single-column and backward-compatible.
   .hero-description {
     font-family: var(--font-sans);
     font-size: var(--font-size-lg);
-    line-height: var(--leading-base);
+    line-height: var(--leading-normal);
     color: var(--color-text);
     margin-bottom: var(--spacing-sm);
+    max-width: 62ch;
   }
 
   .hero-extra {
@@ -130,7 +146,7 @@ layout is single-column and backward-compatible.
 
   @include tablet {
     .hero-header {
-      padding: var(--spacing-xxl) var(--spacing-md);
+      padding: var(--spacing-xxl) var(--spacing-md) var(--spacing-lg);
     }
 
     .hero-inner.has-graphic {

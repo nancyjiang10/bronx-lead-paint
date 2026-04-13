@@ -4,41 +4,31 @@ SiteHeader.svelte — NYCity News Service Style Header
 -->
 <script>
   let {
-    navLinks = [
-      { label: 'Arts & Culture', href: 'https://www.nycitynewsservice.com/nycns_topics/arts-culture/' },
-      { label: 'Business', href: 'https://www.nycitynewsservice.com/nycns_topics/business/' },
-      { label: 'Education', href: 'https://www.nycitynewsservice.com/nycns_topics/education/' },
-      { label: 'Environment', href: 'https://www.nycitynewsservice.com/nycns_topics/environment/' },
-      { label: 'Health', href: 'https://www.nycitynewsservice.com/nycns_topics/health/' },
-      { label: 'Housing', href: 'https://www.nycitynewsservice.com/nycns_topics/housing/' },
-      { label: 'Politics', href: 'https://www.nycitynewsservice.com/nycns_topics/politics/' },
-    ],
+    navLinks = [],
   } = $props();
 </script>
 
 <header class="site-header">
-  <!-- Compact masthead with logo left and nav right -->
   <div class="masthead-wrapper">
     <div class="masthead">
-    <a href="https://www.nycitynewsservice.com/" class="logo" aria-label="NYCity News Service">
-      <!-- Compact HTML/CSS Logo with thin white border -->
-      <span class="logo-text">
-        <span class="logo-nycity">NYCITY</span><span class="logo-news-service">News Service</span>
-      </span>
-    </a>
+      <a href="https://www.nycitynewsservice.com/" class="logo" aria-label="NYCity News Service">
+        <span class="logo-text">
+          <span class="logo-nycity">NYCity</span>
+          <span class="logo-news-service">News Service</span>
+        </span>
+      </a>
 
-    <!-- Navigation inline with logo -->
-    {#if navLinks.length > 0}
-      <nav class="main-nav" aria-label="Main navigation">
-        <ul class="nav-list">
-          {#each navLinks as link (link.href)}
-            <li>
-              <a href={link.href} class="nav-link">{link.label}</a>
-            </li>
-          {/each}
-        </ul>
-      </nav>
-    {/if}
+      {#if navLinks.length > 0}
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            {#each navLinks as link (link.href)}
+              <li>
+                <a href={link.href} class="nav-link">{link.label}</a>
+              </li>
+            {/each}
+          </ul>
+        </nav>
+      {/if}
     </div>
   </div>
 </header>
@@ -47,46 +37,27 @@ SiteHeader.svelte — NYCity News Service Style Header
   @use '../styles' as *;
 
   .site-header {
-    border-bottom: 0px solid var(--color-accent);
-    box-shadow: 0 2px 4px var(--color-shadow);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-white);
   }
 
-  /* Full-width blue background with animated dark-to-light gradient */
   .masthead-wrapper {
-    background: linear-gradient(
-      90deg,
-      var(--color-cuny-blue-dark) 0%,
-      var(--color-accent) 50%,
-      var(--color-cuny-blue-light) 100%
-    );
-    background-size: 200% 100%;
-    animation: gradient-sweep 6s ease-in-out infinite;
+    background: var(--color-white);
   }
 
-  @keyframes gradient-sweep {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 100% 0%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
-
-  /* Compact Masthead - Mobile: centered */
   .masthead {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: 0.9rem var(--spacing-md);
     max-width: var(--max-width-wide);
     margin: 0 auto;
   }
 
   .logo {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
   }
 
@@ -97,7 +68,8 @@ SiteHeader.svelte — NYCity News Service Style Header
   .logo-text {
     display: inline-flex;
     align-items: stretch;
-    border: 1px solid var(--color-white);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
   }
 
   .logo-nycity {
@@ -105,7 +77,7 @@ SiteHeader.svelte — NYCity News Service Style Header
     color: var(--color-accent);
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-bold);
     padding: var(--logo-padding-mobile);
     letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;
@@ -114,17 +86,16 @@ SiteHeader.svelte — NYCity News Service Style Header
   }
 
   .logo-news-service {
-    color: var(--color-white);
+    color: var(--color-dark);
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-normal);
     padding: var(--logo-padding-mobile);
     letter-spacing: var(--letter-spacing-tight);
     display: flex;
     align-items: center;
   }
 
-  /* Navigation - hidden on mobile */
   .main-nav {
     display: none;
   }
@@ -139,7 +110,7 @@ SiteHeader.svelte — NYCity News Service Style Header
   }
 
   .nav-link {
-    color: var(--color-white);
+    color: var(--color-medium-gray);
     text-decoration: none;
     font-family: var(--font-sans);
     font-size: var(--font-size-xs);
@@ -151,16 +122,14 @@ SiteHeader.svelte — NYCity News Service Style Header
   }
 
   .nav-link:hover {
-    color: var(--color-white);
-    opacity: var(--opacity-hover);
+    color: var(--color-dark);
     text-decoration: none;
   }
 
-  /* Desktop styles - show nav, space-between layout, larger logo */
   @include desktop {
     .masthead {
       justify-content: space-between;
-      padding: var(--font-size-xs) var(--spacing-md);
+      padding: 1rem var(--spacing-lg);
     }
 
     .logo-nycity {
@@ -178,5 +147,4 @@ SiteHeader.svelte — NYCity News Service Style Header
       align-items: center;
     }
   }
-
 </style>

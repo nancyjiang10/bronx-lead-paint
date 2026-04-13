@@ -12,6 +12,7 @@ RankingCard.svelte — A horizontal card showing rank, optional image, title, an
     description = '',
     value = '',
     valueLabel = '',
+    compact = false,
   } = $props();
 </script>
 
@@ -39,11 +40,11 @@ RankingCard.svelte — A horizontal card showing rank, optional image, title, an
 {/snippet}
 
 {#if href}
-  <a {href} class="ranking-card ranking-card-link">
+  <a {href} class:ranking-card-compact={compact} class="ranking-card ranking-card-link">
     {@render cardContent()}
   </a>
 {:else}
-  <div class="ranking-card">
+  <div class:ranking-card-compact={compact} class="ranking-card">
     {@render cardContent()}
   </div>
 {/if}
@@ -53,27 +54,45 @@ RankingCard.svelte — A horizontal card showing rank, optional image, title, an
     display: flex;
     align-items: center;
     gap: var(--spacing-md, 1rem);
-    padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+    padding: var(--spacing-sm, 0.875rem) var(--spacing-md, 1rem);
     border-bottom: 1px solid var(--color-border, #ddd);
+    background: var(--color-white, #fff);
   }
 
   .ranking-card-link {
     color: inherit;
     text-decoration: none;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
 
     &:hover {
-      background-color: var(--color-light-gray, #f5f5f5);
+      background-color: #fafafa;
     }
+  }
+
+  .ranking-card-compact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: var(--spacing-md, 1rem);
+  }
+
+  .ranking-card-compact .rank {
+    min-width: auto;
+    text-align: left;
+  }
+
+  .ranking-card-compact .value {
+    margin-left: 0;
+    text-align: left;
   }
 
   .rank {
     flex-shrink: 0;
-    font-size: 1.5rem;
+    font-size: 0.875rem;
     font-weight: 700;
     min-width: 2ch;
     text-align: center;
-    color: var(--color-accent, #003da5);
+    color: var(--color-medium-gray, #666);
   }
 
   .thumbnail {
@@ -98,9 +117,11 @@ RankingCard.svelte — A horizontal card showing rank, optional image, title, an
 
   .title {
     margin: 0;
-    font-size: 1rem;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-lg, 1.125rem);
     font-weight: 600;
     line-height: 1.3;
+    color: var(--color-dark, #1a1a1a);
   }
 
   .description {
@@ -114,13 +135,15 @@ RankingCard.svelte — A horizontal card showing rank, optional image, title, an
     flex-shrink: 0;
     text-align: right;
     margin-left: auto;
+    min-width: 4rem;
   }
 
   .value-number {
     display: block;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.2;
+    color: var(--color-dark, #1a1a1a);
   }
 
   .value-label {
@@ -128,5 +151,9 @@ RankingCard.svelte — A horizontal card showing rank, optional image, title, an
     font-size: 0.75rem;
     color: var(--color-text-secondary, #555);
     line-height: 1.3;
+  }
+
+  .ranking-card-compact .content {
+    width: 100%;
   }
 </style>

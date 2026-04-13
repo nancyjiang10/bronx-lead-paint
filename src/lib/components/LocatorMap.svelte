@@ -18,7 +18,7 @@ USAGE EXAMPLE:
 -->
 <script>
   import { onMount } from 'svelte';
-  import 'maplibre-gl/dist/maplibre-gl.css';
+  import { browser } from '$app/environment';
 
   /** Maps theme names to OpenFreeMap style URLs */
   const THEME_URLS = {
@@ -86,6 +86,9 @@ USAGE EXAMPLE:
 
   onMount(() => {
     let mounted = true;
+
+    // Import CSS only on client
+    import('maplibre-gl/dist/maplibre-gl.css');
 
     import('maplibre-gl')
       .then(({ Map }) => {

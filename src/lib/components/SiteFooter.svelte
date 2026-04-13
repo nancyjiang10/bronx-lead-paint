@@ -36,19 +36,20 @@ USAGE EXAMPLE:
 
 <style>
   .site-footer {
-    background-color: var(--color-light-gray);
-    padding: var(--spacing-xl) var(--spacing-md);
-    margin-top: var(--spacing-xxl);
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-top: var(--spacing-xl);
   }
 
   .footer-container {
-    max-width: var(--max-width);
+    max-width: var(--max-width-wide);
     margin: 0 auto;
     text-align: center;
   }
 
   .footer-logo {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
   }
 
   .cuny-logo {
@@ -63,7 +64,7 @@ USAGE EXAMPLE:
   }
 
   .footer-link {
-    color: var(--color-dark);
+    color: var(--color-medium-gray);
     text-decoration: none;
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
@@ -73,7 +74,7 @@ USAGE EXAMPLE:
   }
 
   .footer-link:hover {
-    color: var(--color-accent);
+    color: var(--color-dark);
   }
 
   .footer-divider {
