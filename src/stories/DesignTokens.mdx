@@ -1,13 +1,3 @@
-{/* DesignTokens.mdx — Design System Tokens & SCSS Utilities
-
-   This page documents all CSS custom properties defined in src/app.scss (:root)
-   and all SCSS variables and mixins defined in src/lib/styles/.
-
-   IMPORTANT: Keep this page in sync with src/app.scss and src/lib/styles/.
-   Any time a token, variable, or mixin is added, removed, or changed, update
-   this page to reflect the current state of the design system.
-*/}
-
 import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Design Tokens" />
@@ -226,24 +216,15 @@ Defined in `src/app.scss` — import with `var(--token-name)`.
 
 Defined in `src/app.scss` — import with `var(--token-name)`.
 
-<div style={{fontFamily: 'var(--font-sans)', display: 'flex', flexDirection: 'column', gap: '0.5rem', margin: '1rem 0'}}>
-  {[
-    { token: '--spacing-xxs', value: '0.25rem', px: '4px' },
-    { token: '--spacing-xs',  value: '0.5rem',  px: '8px' },
-    { token: '--spacing-sm',  value: '1rem',    px: '16px' },
-    { token: '--spacing-md',  value: '1.5rem',  px: '24px' },
-    { token: '--spacing-lg',  value: '2rem',    px: '32px' },
-    { token: '--spacing-xl',  value: '3rem',    px: '48px' },
-    { token: '--spacing-xxl', value: '4rem',    px: '64px' },
-  ].map(({ token, value, px }) => (
-    <div key={token} style={{display: 'flex', alignItems: 'center', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
-      <code style={{width: '180px', flexShrink: 0, fontSize: '0.875rem'}}>{token}</code>
-      <code style={{width: '70px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>{value}</code>
-      <code style={{width: '50px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>{px}</code>
-      <div style={{height: '1rem', background: 'var(--color-accent)', width: value, minWidth: '4px'}}></div>
-    </div>
-  ))}
-</div>
+| Token | Value | Pixels |
+|---|---|---|
+| `--spacing-xxs` | `0.25rem` | `4px` |
+| `--spacing-xs` | `0.5rem` | `8px` |
+| `--spacing-sm` | `1rem` | `16px` |
+| `--spacing-md` | `1.5rem` | `24px` |
+| `--spacing-lg` | `2rem` | `32px` |
+| `--spacing-xl` | `3rem` | `48px` |
+| `--spacing-xxl` | `4rem` | `64px` |
 
 ## Layout
 
